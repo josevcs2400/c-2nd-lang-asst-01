@@ -7,22 +7,27 @@ Allocation
 
 int main() {
 
+
+
     /*************************
     section i.
     *************************/
-    int *array_size = (int *) malloc(sizeof(int));
-    int size = 8;
-
+    //explicit allocation of an integer on the heap
     printf("--------------- section i. ---------------\n");
+    int* array_size = (int*) malloc(sizeof(int));
+    int size = 8;
+    printf("memory address of array_size = %p\n", array_size);
     if(array_size == NULL) {
         printf("ERROR: Memory allocation failed!\n");
-        return 1;
+        return 0;
     }
     else {
-        *array_size = 10;
+        *array_size = 9; 
+        printf("value at pointer array_size address = %d\n", *array_size); //prints 00000009
     }
 
-    int *int_array = (int *) malloc(*array_size * sizeof(int));
+    //explicit allocation of an integer array on the heap
+    int* int_array = (int*) malloc(*array_size * sizeof(int)); 
 
     if(int_array == NULL) {
         printf("ERROR: Memory allocation failed!\n");
@@ -30,21 +35,23 @@ int main() {
     }
     else {
         for(int i = 0; i < *array_size; i++) {
-            int_array[i] = i * *array_size;
+            int_array[i] = i * *array_size; 
             printf("Array element %d holds %d\n", i, int_array[i]);
         }
     }
-    printf("\n");
 
+    //ALWAYS make sure to free up any malloc variables
     free(array_size);
-    array_size = NULL;
-
+    array_size = NULL; //good practice along with free() function!!!
     free(int_array);
-    int_array == NULL;
+    int_array = NULL;
+
+
 
     /*************************
     section ii.
     *************************/
+    /*
     printf("--------------- section ii. ---------------\n");
     float *data = (float *) malloc(sizeof(float) * 1000);
     if(data != NULL) {
@@ -67,6 +74,7 @@ int main() {
     }
     free(square_table);
     square_table = NULL;
+    */
 
     /*
     typeof struct {
@@ -88,7 +96,7 @@ int main() {
     /*************************
     section iii.
     *************************/
-    double ***data_cube;
+    /*double ***data_cube;
     data_cube = (double ***) malloc(sizeof(double **) * 1000);
 
     for (int i = 0; i < 1000; i++) {
@@ -112,6 +120,7 @@ int main() {
     }
 
     free(data_cube);
+    */
 
     /*************************
     section iv.
@@ -120,15 +129,15 @@ int main() {
     void foo() {
         int iarr[1000][1000][1000];
     }
-    */
+    
     void bar(int ***data_cube) {
         //use data_cube
-    }
+    }*/
 
     /*************************
     section vi.
     *************************/
-    void allocate_array(int **a) {
+    /*void allocate_array(int **a) {
         *a = (int *) malloc(sizeof(int) * 100);
     }
     int *int_array5;
@@ -145,7 +154,7 @@ int main() {
     if (int_array6) {
         // use int_array...
     }
-    
+    */
 
     return 0;
 
