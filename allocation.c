@@ -64,23 +64,35 @@ int main() {
     free(data);
     data = NULL;
 
-    /*
-    double **square_table;
-    square_table = (double **) malloc(sizeof(double *) * 100);
-
+    //double pointers
+    printf("\n");
+    double** square_table = (double**) malloc(sizeof(double*) * 10);
+    printf("address of outer square_table = %p\n", square_table);
+    printf("\n");
     if(square_table != NULL) {
-        for(int i = 0; i < 100; i++) {
-            square_table[i] = (double *) malloc(sizeof(double) * 100);
+        for(int i = 0; i < 10; i++) {
+            square_table[i] = (double*) malloc(sizeof(double) * 10);
+            if(square_table[i] != NULL) {
+                printf("address of inner square_table at index %d = %p\n", i, square_table[i]);
+            }
+            else {
+                return 0;
+            }
         }
+        printf("\n");
     }
-    for(int i = 0; i < 1000; i++) {
+    else {
+        return 0;
+    }
+    //free up memory
+    for(int i = 0; i < 10; i++) { 
         free(square_table[i]);
         square_table[i] = NULL;
     }
     free(square_table);
     square_table = NULL;
-    */
-    /*
+
+    /*@todo
     typeof struct {
         char first_name[10];
         char last_name[10];
