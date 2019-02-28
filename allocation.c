@@ -51,15 +51,20 @@ int main() {
     /*************************
     section ii.
     *************************/
-    /*
+    printf("\n");
     printf("--------------- section ii. ---------------\n");
-    float *data = (float *) malloc(sizeof(float) * 1000);
+    float* data = (float*) malloc(sizeof(float) * 1000);
     if(data != NULL) {
-        //use data...
+        printf("the memory address value of pointer data = %d\n", data);
+        printf("the value of the memory address that pointer data points to = %f\n", *data);
+    }
+    else {
+        return 0;
     }
     free(data);
     data = NULL;
 
+    /*
     double **square_table;
     square_table = (double **) malloc(sizeof(double *) * 100);
 
@@ -75,7 +80,6 @@ int main() {
     free(square_table);
     square_table = NULL;
     */
-
     /*
     typeof struct {
         char first_name[10];
