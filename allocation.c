@@ -115,31 +115,59 @@ int main() {
     /*************************
     section iii.
     *************************/
-    /*double ***data_cube;
-    data_cube = (double ***) malloc(sizeof(double **) * 1000);
-
-    for (int i = 0; i < 1000; i++) {
-        data_cube[i] = (double **) malloc(sizeof(double *) * 1000); 
+    printf("\n");
+    printf("--------------- section iii. ---------------\n");
+    //allocate 1st dimension
+    double*** data_cube = (double***) malloc(sizeof(double**) * 10);
+    if(data_cube == NULL) { 
+        printf("there was an error allocating memory for 1st dimension!\n");
+        return 0; 
     }
-
-    for (int i = 0; i < 1000; i++) {
-        for (int j = 0; j < 1000; j++) {
-            data_cube[i][j] = (double *) malloc(sizeof(double) * 1000); 
+    //allocate 2nd dimension
+    for (int i = 0; i < 10; i++) {
+        data_cube[i] = (double**) malloc(sizeof(double*) * 10); 
+        if(data_cube[i] == NULL) { 
+            printf("there was an error allocating memory for 2nd dimension!\n");
+            return 0; 
         }
     }
-
-    for (int i = 0; i < 1000; i++) {
-        for (int j=0; j<1000; j++) {
-            free(data_cube[i][j]); 
+    //allocate 3rd dimension
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            data_cube[i][j] = (double*) malloc(sizeof(double) * 10); 
+            if(data_cube[i][j] == NULL) { 
+                printf("there was an error allocating memory for 3rd dimension!\n");
+                return 0; 
+            }
         }
     }
-
-    for (int i = 0; i < 1000; i++) {
+    //use data cube
+    printf("data_cube = %p\n", data_cube);
+    for(int i = 0; i < 10; i++) {
+        printf("%d\n", data_cube[i]);
+        for(int j = 0; j < 10; j++) {
+            if(j == 9) {
+                printf("%d", data_cube[i][j]);
+            }
+            else {
+                printf("%d - ", data_cube[i][j]);
+            }
+        }
+        printf("\n");
+    }
+    //free up memory
+    for(int i = 0; i < 10; i++) {
+        for(int j = 0; j < 10; j++) {
+            free(data_cube[i][j]);
+            data_cube[i][j] = NULL;
+        }
+    }
+    for (int i = 0; i < 10; i++) {
         free(data_cube[i]);
+        data_cube[i] = NULL;
     }
-
     free(data_cube);
-    */
+    data_cube = NULL;
 
     /*************************
     section iv.
