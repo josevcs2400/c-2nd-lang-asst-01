@@ -112,6 +112,7 @@ int main() {
     roster = NULL;
 
 
+
     /*************************
     section iii.
     *************************/
@@ -169,17 +170,72 @@ int main() {
     free(data_cube);
     data_cube = NULL;
 
+
+
     /*************************
     section iv.
     *************************/
+    //QUIZ QUESTION: 
+    //Are the pointers pointing to malloc-ed data statically or dynamically allocated? Or maybe both? Can you show examples?
+    //
+    //ANSWER:
+    //I want to say ALL the malloc-ed data is dynamically allocated as previously stated in your 
+    //statement "Dynamic allocation is done with malloc"
+
+
+
+    /*************************
+    section v.
+    *************************/
     /*
     void foo() {
-        int iarr[1000][1000][1000];
+        int iarr[1000][1000][1000]; //DONT DO THIS!!!
     }
+    */
+    printf("\n");
+    printf("--------------- section v. ---------------\n");
+    void print_lotto_data(int*** data) {
+        printf("Lotto Data:\n");
+        for(int i = 0; i < 10; i++) {
+            for(int j = 0; j < 10; j++) {
+                if(j == 9) {
+                    printf("%d\n", data[i][j]);
+                }
+                else {
+                    printf("%d - ", data[i][j]);
+                }
+            }
+        }
+    }
+    int*** lotto_data = (int***) malloc(sizeof(int**) * 10);
+        if(lotto_data == NULL) { printf("there was an error allocating memory!\n"); return 0; }
+    for(int i = 0; i < 10; i++) {
+        lotto_data[i] = (int**) malloc(sizeof(int*) * 10);
+        if(lotto_data[i] == NULL) { printf("there was an error allocating memory!\n"); return 0; }
+    }
+    for(int i = 0; i < 10; i++) {
+        for(int j = 0; j < 10; j++) {
+            lotto_data[i][j] = (int*) malloc(sizeof(int) * 10);
+            if(lotto_data[i][j] == NULL) { printf("there was an error allocating memory!\n"); return 0; }
+        }
+    }
+    print_lotto_data(lotto_data);
+    //free allocated memory
+    //free up memory
+    for(int i = 0; i < 10; i++) {
+        for(int j = 0; j < 10; j++) {
+            free(lotto_data[i][j]);
+            lotto_data[i][j] = NULL;
+        }
+    }
+    for (int i = 0; i < 10; i++) {
+        free(lotto_data[i]);
+        lotto_data[i] = NULL;
+    }
+    free(lotto_data);
+    lotto_data = NULL;
     
-    void bar(int ***data_cube) {
-        //use data_cube
-    }*/
+
 
     /*************************
     section vi.
