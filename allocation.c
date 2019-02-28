@@ -92,21 +92,24 @@ int main() {
     free(square_table);
     square_table = NULL;
 
-    /*@todo
-    typeof struct {
-        char first_name[10];
-        char last_name[10];
-        char nine_hundred[10];
-        int year_first_enrolled;
-    } student_t, *student_p;
-    student_t lm245 = {"logan", "monaghan", "900987321", 2015};
-    student_t *student_handle = &lm245;
-    student_p roster = (student_p) malloc(sizeof(student_t) * 35);
+    struct student_t {
+        char first_name[15];
+        char last_name[20];
+        char id_number[9];
+        int year_enrolled;
+    };
+    struct student_t lm245 = {"logan", "monaghan", "90098732", 2015};
+    struct student_t *student_pointer = &lm245;
+    //create roster of 35 students
+    struct student_pointer *roster = (struct student_pointer*) malloc(sizeof(struct student_t) * 35); 
     if(roster) {
-        //use student roster
+        printf("address that roster points to = %p\n", roster);
+    }
+    else {
+        return 0;
     }
     free(roster);
-    */
+    roster = NULL;
 
 
     /*************************
