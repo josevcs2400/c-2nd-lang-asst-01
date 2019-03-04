@@ -240,24 +240,27 @@ int main() {
     /*************************
     section vi.
     *************************/
-    /*void allocate_array(int **a) {
-        *a = (int *) malloc(sizeof(int) * 100);
+    printf("\n");
+    printf("--------------- section vi. ---------------\n");
+    void allocate_array(int** a) {
+        *a = (int*) malloc(sizeof(int) * 100);
     }
-    int *int_array5;
+    int* int_array5;
     allocate_array(&int_array5);
     if(int_array5) {
-        //use int_array5
+        printf("address of int_array5 = %p\n", int_array5);
     }
-    int *allocate_array2() {
-        return (int *) malloc(sizeof(int) * 100);
+    int* allocate_array2() {
+        return (int*) malloc(sizeof(int) * 100);
     }
 
-    int *int_array6 = allocate_array2();
+    int* int_array6 = allocate_array2();
     
     if (int_array6) {
-        // use int_array...
+        printf("address of int_array6 = %p\n", int_array6);
     }
-    */
+    
+
 
     return 0;
 
