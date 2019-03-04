@@ -4,7 +4,7 @@ Structures
 
 #include <stdio.h>
 
-int main() {
+int structures_jv() {
 
     /*************************
     section i.

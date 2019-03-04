@@ -20,7 +20,7 @@ int *get_array2() {
     //return array2;
 }
 
-int main() {
+int working_with_arrays_in_functions_jv() {
     /*************************
     section i.
     *************************/

@@ -5,7 +5,7 @@ Allocation
 #include <stdlib.h>
 #include <stdio.h>
 
-int main() {
+int allocation_jv() {
 
 
 

@@ -4,7 +4,7 @@ section 5.(optional)
 
 #include <stdio.h>
 
-int main() {
+int optional_jv() {
 
     //typedef struct student_record student_t;
     typedef struct {

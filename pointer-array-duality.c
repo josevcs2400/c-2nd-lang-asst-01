@@ -18,7 +18,7 @@ int printNumbersFrom1to10() {
 
 
 
-int main() {
+int pointer_array_duality_jv() {
 
     /*************************
     i.
